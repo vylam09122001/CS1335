@@ -1,0 +1,73 @@
+// This program will display random information about 5 animals
+// By Vy Lam 07/17/2022
+
+#include <iostream>
+using namespace std;
+#include <time.h> // needed for time 
+
+int switchAnimal(int valAnimal)
+{
+    switch (valAnimal) 
+    {
+        case 1:
+            cout << "Cats spend approximately 30 percent of their waking hours grooming themselves.";
+            break;
+        case 2:
+            cout << "Dogs have 28 baby teeth and 42 permanent teeth.";
+            break;
+        case 3:
+            cout << "Fleas can jump 350 times its body length.";
+            break;
+        case 4:
+            cout << "The only mammal capable of flight is the bat.";
+            break;
+        case 5:
+            cout << "A newborn kangaroo is the size of a lima bean.";
+            break;
+    }
+    return 0;
+}
+
+void ifSport(int valSport)
+{
+    if (valSport == 1)
+    {
+        cout << "All-time MLB home-run leader Barry Bonds is the only member of the 500/500 home runs and steals club, not to mention the only member of the 400/400 home runs and steals club.";
+    }
+    else if (valSport == 2)
+    {
+        cout << "Babe Ruth acquired his 700th home run baseball by paying the fan who caught it $20.";
+    }
+    else if (valSport == 3)
+    {
+        cout << "Wrestling legend Kevin Nash was highly-recruited for basketball coming out of Michigan. He was the second most sought after, behind Magic Johnson.";
+    }
+    else if (valSport == 4)
+    {
+        cout << "Tiger Woods made his first hole in one at the age of eight years old.";
+    }
+    else
+    {
+        cout << "Pele is the only player to ever be a part of three different World Cup winning teams.";
+    }
+
+}
+
+int main() 
+{
+    // seed the random method by using the time clock
+    srand(time(NULL));
+
+    int randNum1 = 1 + (rand() % 5);
+    switchAnimal(randNum1);
+
+    cout << endl << endl;
+
+    int randNum2 = 1 + (rand() % 5);
+    ifSport(randNum2);
+
+    return 0;
+}
+
+
+
