@@ -1,0 +1,89 @@
+/*
+he program will determine the total weight of the dogs,
+the average weight of the dogs, the highest weighing dog, 
+and the lowest weighing dog
+-------------
+By Vy Lam - 07/24/2022
+*/
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    int arraySize;
+    int dogNum[arraySize];
+    int dogWeight[arraySize];
+    string dogNames[arraySize]; 
+    double average, sum;
+    
+
+    // Get number of dogs
+	cout << "How many dogs would you like to enter?: ";
+	cin >> arraySize;
+	
+	while (arraySize < 0)
+	{
+		cout << "Please enter a valid number (>0): ";
+		cin >> arraySize;
+	}
+	
+	// Get names
+	for (int i = 0; i < arraySize; i++)
+	{
+		cout << "Enter name of dog " << i+1 << " : ";
+		cin >> dogNames[i];
+	}
+
+	// Get weight
+	for (int i = 0; i < arraySize; i++)
+	{
+		cout << "Enter the weight for " << dogNames[i] << " : ";
+		cin >> dogWeight[i];
+
+        while (dogWeight[i] < 0)
+        {
+            cout << "Please enter a valid number (>0): ";
+            cin >> dogWeight[i];
+        }
+	}
+
+    for (int i = 0; i < arraySize; i++)
+    {
+        sum += dogWeight[i];
+        average = sum / arraySize;
+    }
+
+    //max min
+    int highest = dogWeight[0];
+    int lowest = dogWeight[0];
+    int highIndex = 0;
+    int lowIndex = 0;
+    for (int i = 0; i < arraySize; i++)
+    {
+        if (highest < dogWeight[i])
+        {
+            highest = dogWeight[i];
+            highIndex = i;
+        }
+        
+        if (lowest > dogWeight[i])
+        {
+            lowest = dogWeight[i];
+            lowIndex = i;
+        }
+    }
+
+
+    cout << "-----------------------------------\n\n";
+    cout << "Total Weight: " << sum << endl
+         << "Average Weight: " << average << endl
+         << "Highest Weight:" << dogNames[highIndex] << endl
+         << "Lowest Weight: " << dogNames[lowIndex] << endl;
+
+
+
+    return 0;
+}	
