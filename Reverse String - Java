@@ -1,0 +1,32 @@
+/* 
+ * The following program will display the contents that a user enters backwards
+ * By Vy Lam - 11.05.2022
+ * JDK 18.0.2.1
+ */
+
+import java.util.Scanner;
+
+public class TextProcessing {
+
+    public static void main(String[] args) 
+    {
+       System.out.println("Insert your word: ");
+       Scanner input = new Scanner(System.in);
+       String word = input.nextLine();
+      
+       TakeWord(word);
+    }
+    
+    public static void TakeWord (String word)
+    {
+        String rvString = "";
+        
+        for (int i = word.length()-1; i >= 0; i --)
+        {
+            rvString += word.charAt(i);
+        }
+        
+        System.out.println(rvString);
+    }
+    
+}
