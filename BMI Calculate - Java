@@ -1,0 +1,99 @@
+/* 
+ * This program will calculate BMI with a functional method
+ * By Vy Lam - 09.18.2022
+ * JDK 18.0.2.1
+ */
+import java.util.Scanner;
+public class Assignment05 
+{
+    public static void main(String[] args) 
+    {
+        String replayAnswer = "yes";
+        while (replayAnswer == "yes")
+        {
+            int randomNum = (int) (Math.random() * 10);
+            boolean correctAnswer = switchAnimal(randomNum);
+        
+        Scanner input = new Scanner(System.in);
+        System.out.println("Can you tell the fact is TRUE or FALSE?");
+        String userAnswer = input.next();
+  
+        compare(userAnswer, correctAnswer);
+        System.out.println("Do you want to replay?");
+        replayAnswer = input.next();
+        }
+    }
+    
+    public static boolean switchAnimal (int factRandom)
+    {
+        switch (factRandom)
+        {
+            case 1 -> {
+                System.out.println("Koala fingerprints are so close to humans' "
+                        + "that they could taint crime scenes.");
+            }
+            case 2 -> {
+                System.out.println("Felines and canines are colour blind.");
+            }
+            case 3 -> {
+                System.out.println("Parrots will selflessly help each other out.");
+            }
+            case 4 -> {
+                System.out.println("Ghost crabs growl using teeth in their stomachs.");
+            }
+            case 5 -> {
+                System.out.println("Male animals are not nurturing.");
+            }
+            case 6 -> {
+                System.out.println("The mantis shrimp has the world's fastest punch.");
+            }
+            case 7 -> {
+                System.out.println("Bees can only sting once.");
+            }
+            case 8 -> {
+                System.out.println("Ducks can’t fly.");
+            }
+            case 9 -> {
+                System.out.println("Narwhal tusks are really an \"inside out\" tooth.");
+            }
+            case 10 -> {
+                System.out.println("Touch a baby bird and mom will fly the coop.");
+            }
+        }
+        
+        return switch (factRandom) {
+            case 1 -> true;
+            case 2 -> false;
+            case 3 -> true;
+            case 4 -> true;
+            case 5 -> false;
+            case 6 -> true;
+            case 7 -> false;
+            case 8 -> false;
+            case 9 -> true;
+            case 10 -> false;
+            default -> true;
+        };
+    }
+    
+    public static void compare(String userInput, boolean answer)
+    {
+        boolean userInputBoolean;
+        if ("true".equals(userInput.toLowerCase()))
+        {
+            userInputBoolean = true;
+        } else 
+        {
+            userInputBoolean = false;
+        }
+        
+        if (userInputBoolean == answer)
+        {
+            System.out.println("Correct");
+        } else {
+            System.out.println("Uncorrect");
+        }
+        
+    }
+    
+}
